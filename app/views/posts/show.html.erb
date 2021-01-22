@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<p class = "title has-text-centered">
+  <strong>Post:</strong><br/>
+  </p>
+  <p class = "has-text-centered">
+  <%= @post.post %>
+</p>
+<div class = "container has-text-centered">
+<%= link_to 'Edit', edit_post_path(@post), class: "has-text-primary" %> |
+<%= link_to 'Back', posts_path, class: "has-text-primary" %>
+</div>
