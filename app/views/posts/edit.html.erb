@@ -1,6 +1,8 @@
-<h1>Editing Post</h1>
+<h1 class = "title has-text-centered">Editing Post</h1>
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div class = "container has-text-centered">
+  <%= link_to 'Show', @post, class: "has-text-primary"  %> |
+  <%= link_to 'Back', posts_path, class: "has-text-primary"  %>
+</div>
