@@ -14,12 +14,12 @@
  *= require_self
  */
 
- @import "bulma";
+@import "bulma";
 
- .navbar-brand .title {
-    color: white;
+.navbar-brand .title {
+  color: white;
 }
 
 .notification:not(:last-child) {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
