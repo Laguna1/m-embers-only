@@ -1,30 +1,16 @@
 <div class="column is-6">
- 
-
-
-     <% @posts.each do | post | %>
+   <% @posts.each do | post | %>
     <div class="box">
       <article class="media">
        <div class="media-content">
           <div class="content">
+       
              <p><%= post.post %> </p>
           </div>
-
-          <nav class="level">
-              <div class="level-left is-mobile">
-                  <%= link_to post, class: "levell-item" do %>
-                  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                  <% end %>
-                  <%= link_to edit_post_path(post), class: "level-item" do %>
-                  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                  <% end %>
-                  <%= link_to post, method: :delete, data: { confirm: "Are you shure you want delete this post?"
-                  } do %>
-                  <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                  <% end %>
-              </div>
-          </nav>
-
+           <% if user_signed_in? %>
+           <em>By:</em> <%= post.user.username %>
+           
+           <% end %>
       </article>
 
      </div>

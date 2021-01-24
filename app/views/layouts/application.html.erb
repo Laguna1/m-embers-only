@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MEmbersOnly</title>
+    <title>M-embers-only</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,21 +13,19 @@
 
   <body>
   <% if flash[:notice] %>
-
-    <div class="notification is-primary global-notification">
-     <p class="notice"><%= notice %></p>
-    </div>
-    <% end %>
-    <% if flash[:alert] %>
-  <div class="notification is-danger global-notification">
-  <p class="alert"><%= alert %></p>
+  <div class="notification is-primary global-notification">
+   <p class="notice"><%= notice %></p>
   </div>
-    <% end %>
-
+  <% end %>
+  <% if flash[:alert] %>
+<div class="notification is-danger global-notification">
+<p class="alert"><%= alert %></p>
+</div>
+  <% end %>
 <nav class="navbar is-info">
   <div class="navbar-brand">
     <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title is-5">Club</h1>
+      <h1 class="title is-5"> My Club</h1>
       <% end %>
       <div class="navbar-burger burger" data-target="navbarExample">
       <span></span>
@@ -40,15 +38,25 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="field is-grouped">
+          
+          <% if user_signed_in? %>
           <p class="control">
           <%= link_to 'New Post', new_post_path, class:"button is-info is-inverted" %>
           </p>
           <p class="control">
-          <%= link_to 'Log in', new_user_session_path, class: "button is-info" %>
+          <%= link_to current_user.name, edit_user_registration_path, class: "button is-info" %>
+          </p>
+          <p> 
+          <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:"button is-info" %>
+          </p>
+          <% else %>
+          <p class="control">
+          <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
           </p>
           <p class="control">
           <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
           </p>
+          <% end %>
         </div>
       </div>
     </div>
